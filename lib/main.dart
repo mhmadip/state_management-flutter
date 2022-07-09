@@ -7,7 +7,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<Data>(
-      builder: (context) => Data(),
+      create: (context) => Data(),
       child: MaterialApp(
         home: Scaffold(
           appBar: AppBar(
@@ -60,7 +60,7 @@ class MyTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       onChanged: (newText) {
-        Provider.of<Data>(context).changeString(newText);
+        Provider.of<Data>(context, listen: false).changeString(newText);
       },
     );
   }
